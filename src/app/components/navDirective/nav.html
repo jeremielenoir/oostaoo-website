@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default noPad">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header noPad">
+      <button type="button" class="navbar-toggle" ng-click="main.isCollapsed = !main.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><b>Ooostaoo</b> Consulting</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse" uib-collapse="main.isCollapsed">
+      <ul class="nav navbar-nav text-center">
+        <li><a href="#" ng-click="main.gotoElement('presentation')">Présentation <span class="sr-only">(current)</span></a></li>
+        <li><a href="#" ng-click="main.gotoElement('team')">Team</a></li>  
+        <li><a href="#" ng-click="main.gotoElement('services')">Services</a></li>
+        <li><a href="#" ng-click="main.gotoElement('charte')">Qualité</a></li>
+        <li><a href="#" ng-click="main.gotoElement('contact')">Contact</a></li>  
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>

@@ -6,23 +6,38 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($log,$timeout,$scope, webDevTec) {
+  function MainController($log,$timeout,$location, webDevTec,scrollSmoothService) {
     var vm = this;
-    
+
+
+
+
+    //scrollSmooth//
+    vm.gotoElement = function (eID){
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('bottom');
+      // call $anchorScroll()
+      scrollSmoothService.scrollTo(eID);
+    };
+    //scrollSmooth ends//
+
+
+
     //Map//
-    $scope.map = {center: {latitude: 48.889302, longitude: 2.342963 }, zoom: 15 };
-    $scope.options = {scrollwheel: false};
-    $scope.coordsUpdates = 0;
-    $scope.dynamicMoveCtr = 0;
-    $scope.marker = {
+    vm.map = {center: {latitude: 48.866441, longitude: 2.337112 }, zoom: 15 };
+    vm.options = {scrollwheel: false};
+    vm.coordsUpdates = 0;
+    vm.dynamicMoveCtr = 0;
+    vm.marker = {
       id: 0,
       coords: {
-        latitude: 48.889302,
-        longitude: 2.342963
+        latitude: 48.866441,
+        longitude: 2.337112
       },
-      options: { draggable: false },
+      options: { draggable: false }
     };
-    $scope.windowOptions = {
+    vm.windowOptions = {
       boxClass: "infobox",
       boxStyle: {
         backgroundColor: "#EF5369",
@@ -34,7 +49,7 @@
       },
       content: "<h5>Oostaoo consulting</h5>----------------------- " +
       "<a href='mailto:contact@oostaoo.com' style='color:white; text-decoration:none;'>contact@oostaoo.com</a>" + "<p>06 16 42 64 65</p>" + 
-      "<h6>2, rue de l’adresse 75001 Paris<h6>",
+      "<h6>46, rue de Richelieu 75001 Paris<h6>",
       disableAutoPan: true,
       maxWidth: 0,
 
@@ -46,18 +61,15 @@
       pane: "floatPane",
       enableEventPropagation: false
     };
-    $scope.onClick = function(marker, eventName, model) {
-      console.log("Clicked!");
+    vm.onClick = function(marker, eventName, model) {
       model.show = !model.show;
-      $scope.activeModel = model;
-    };
-
-
-
-
-  
-      
+      vm.activeModel = model;
+    };    
     //Map ends//
+
+    //Nav bar collapse//
+    vm.isCollapsed = true;
+    //Nav bar collapse ends//
 
 
     vm.awesomeThings = [];

@@ -2,17 +2,9 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
+@import "../app/components/sass/mixins.scss";
+@import "../app/components/sass/variables.scss";
 $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
-$white : white;
-$red : #EF5369;
-$beige : #F5E6DF;
-
-$weightFont : 300;
-
-$paddingContentConsult : 64px;
-$padding40 : 40px;
-$noPadding : 0;
-$noMargin : 0;
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -20,24 +12,102 @@ $noMargin : 0;
  */
 // bower:scss
 // endbower
+
+
+.circle {
+  @include circle(160px,transparent);
+}
+
+body{
+  font-family: $rubik;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: $weightFont;
+}
+
+section:not(#contact):not(#presentation):not(.footer){
+  opacity:$zero;
+}
+
+.white{
+  color: $white;
+}
+.red{
+  color:$red;
+}
+.beige{
+  color:$beige;
+}
+
+.container-fluid{
+  padding-left: $zero;
+  padding-right: $zero;
+}
+
 .noPad{
-  padding: $noPadding;
+  padding: $zero;
 }
 .noMarg{
-  margin: $noMargin;
+  margin: $zero;
 }
 .padding40{
   padding: 40px;
 }
 
-.content{
-  h1,h2,h3,h4,h5,h6{
+.navbar{
+  margin-bottom: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: $beige;
+  .navbar-brand{
     color:$red;
-    font-weight: $weightFont;
+    font-size: 1.6em;
+  }
+  .navbar-nav{
+    a { 
+      font-size: 1.2em;
+    }
+  }
+  .navbar-collapse > ul > li > a {
+    margin:2px;
+    background: $red;
+    color: $white !important;
+    @include transition(background-color 1s .2s, color 2s);
+  }
+  .navbar-collapse > ul > li > a:hover {
+    color:$red !important;
   }
 }
+
+
+.header{
+  margin-bottom: $marginSection;
+  border-bottom: 3px solid $red;
+  h1{
+    color:$red;
+  }
+  .lead{
+    margin-bottom: 70px;
+  }
+}
+
+.content{
+  h3{
+    color:$red;
+  }
+}
+
 .contentcharte{
   padding: $padding40;
+  margin-bottom: $marginSection;
+  p{
+    font-size: 1.4em;
+    text-align: center;
+  }
+  div:nth-child(2){
+    padding: 60px;
+  }
 }
 
 .contentConsult{
@@ -45,6 +115,14 @@ $noMargin : 0;
   padding: $paddingContentConsult;
   width: 581px;
 }
+
+.team{
+  background-color: $beige;
+  padding: $padding40;
+  margin-bottom: $marginSection;
+}
+
+
 .contentContact{
     background-color: $beige;
 }
@@ -74,6 +152,7 @@ $noMargin : 0;
     width: 50px;
   }
 }
+
 .angular-google-map-container {
     height: 400px;
     width: 100%;
